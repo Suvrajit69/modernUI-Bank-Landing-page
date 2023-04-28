@@ -1,8 +1,39 @@
 import React from 'react'
+import { features } from '../constants'
+import styles, {layout} from '../style'
+import Button from './Button'
+
+const FeatureCard = (props) =>{
+  const {icon, title, content, index} = props;
+  // console.log(title)
+ return (
+ <div className={`flex flex-row p-6 rounded-[20px] ${index !== features.length-1 ? 'mb-6' : 'mb-0'} feature-card`}>
+  <div className={`w-[64px] h-[64px] rounded-full ${styles.flexCenter} bg-dimBlue`}>
+    <img src={icon} alt="icon" className='w-2/4 h-1/2 object-contain'/>
+  </div>
+    <div className='flex-1 flex flex-col ml-3'>
+      <h4 className='font-poppins font-semibold text-white text-[18px] leading-[23px] mb-1'>{title}</h4>
+      <p className='font-poppins font-normal text-dimWhite text-[16px] mb-1 leading-[24px]'>{content}</p>
+    </div>
+ </div>
+)}
 
 const Business = () => {
   return (
-    <div>Business</div>
+    <section id='features' className={`${layout.section}`}>
+      <div className={`${layout.sectionInfo}`}>
+        <h2 className={`${styles.heading2}`}>You do the business, 
+        <br className='sm:block hidden'/> we'll handle the money.</h2>
+        <p className={`${styles.paragraph} max-w-[470px] mt-5`}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis repudiandae debitis, distinctio reprehenderit sequi ipsum magnam mollitia explicabo aliquam aspernatur amet voluptatem assumenda, laborum quisquam veritatis velit natus recusandae nihil?</p>
+
+        <Button props='mt-10'/>
+      </div>
+      <div className={`${layout.sectionImg} flex-col`}>
+        {features.map((feature,index)=>(
+          <FeatureCard key={feature.id} {... feature} index={index}/>
+        ))}
+      </div>
+    </section>
   )
 }
 
