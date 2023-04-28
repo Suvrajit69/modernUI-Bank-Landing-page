@@ -19,6 +19,7 @@ module.exports = {
       ss: "620px",
       sm: "768px",
       md: "900px",
+      // xmd:"1060",
       lg: "1200px",
       xl: "1700px",
     },
