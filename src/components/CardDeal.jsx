@@ -14,7 +14,7 @@ const CardDeal = () => (
       <Button props={'mt-10'}/>
     </div>
     <div className={`${layout.sectionImg}`}>
-       <img src={card} alt="" className='w-full h-full'/>
+       <img src={card} alt="card" className='w-full h-full'/>
     </div>
   </section>
 )
